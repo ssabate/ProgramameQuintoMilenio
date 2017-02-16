@@ -7,6 +7,7 @@ package programamequintomilenio;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -22,12 +23,22 @@ public class ProgramameQuintoMilenio {
         Scanner entI=new Scanner(new InputStreamReader(System.in));
         long casos=entI.skip("[\r\n]*").nextLong();
         for (; casos >0; casos--) {
+            
+            
+            //String text=entSt.nextLine();
+            //String ocult=entSt.nextLine().replaceAll("\\p{Space}", "");
+            //String regexp="[^"+ocult+"]";
+            //text.replaceAll(regexp, "");
+            //text=Pattern.compile(regexp).matcher(text).replaceAll("");
+            
             String titular=entI.skip("[\r\n]*").nextLine().toUpperCase().replace(" ", "");
             String ocult=entI.skip("[\r\n]*").nextLine().toUpperCase().replace(" ", "");
-            if(titular.isEmpty() || ocult.isEmpty()){
+            if(titular.isEmpty() || ocult.isEmpty() ||ocult.length()>titular.length()){
                 System.out.println("NO");
                 continue;
             }
+            //String regexp="[^"+ocult+"]";
+            //titular=Pattern.compile(regexp).matcher(titular).replaceAll("");
             int pos=titular.length()-1;
             int i;
             for (i = ocult.length()-1; i >=0 && pos>=0; i--) {
